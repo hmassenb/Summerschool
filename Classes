@@ -1,0 +1,91 @@
+31.07
+- statisticians are into inference, for hypothesis testing
+- mean and distribution is not sufficient for them
+- IS IT SIGNIFICANT? 
+
+Dummy regression: 
+X = [M, F] X' = transposed X
+multiplying gives 2x2 matrix
+  [ 1\avg_M       0   ]
+  [ 0         1\avg_F ]
+inverting ^-1 => change diagonal 
+
+several ways to obtain results, specifications is same, but interpretation changes
+=> reparametrization
+a without hat is conditional expectation of wage given gender is female = constant
+-> average for females
+
+With dummys M = 1 - F, multiplying 1-F out then second constant appears that gets added to previous intercept 
+then constant = average for males
+
+further reparametrization by substituting constant with F+M (rhs of note sheet of teacher)
+reg wage female male, nocons
+no reference category needed, means already displayed
+
+reference category = baseline 
+
+dummies and constant => dummy variable trap and thus one dummy get dropped
+no perfect linear collinearity
+is not violated since:
+M, F and 1 has a linear relationship and 1 is dropped thus works
+OR
+full rank condition holds: my scalars in the matrix are not multiples of each other -> linearly independent
+
+M, F and 1 are 3 ranks
+but one will be dropped of these three, only two left
+3 possibilities 
+1) constant + male coeff
+2) constant + female coeff
+3) male coef + female coeff
+
+------------------------------------------------------------------------------------------------------
+r^2 = ESS\TSS = 1 - RSS\TSS = [SUM ( y^hat - avg_y)^2] / SUM (y - avg_y)^2]
+proportion explained by my regressors 
+- regressand y^hat obtained from regression
+
+iv. this student is violating the rank condition
+
+------------------------------------------------------------------------------------------------------
+Hypothesis testing - do it for the inference 
+distribution of y is determining what happens in regressions
+if y are normal beta^hat normality can come
+
+never make hats on ttesting -> doesnt make sense 
+average probability to jump around -> st dev
+- y is normal, beta is normal thus ~N(0,1)
+- combination of linear combinations results in a normal distri
+
+
+STATA reg: std error is hatted standard error based on beta^hat
+
+P>|t| 
+!= significance level
+!= probability that the H0 is true
+= probability that coefficient 
+p value probabilitz under assumption and null that i obtain a test statistic \\
+more unfavorable to the null than i actually obtained
+=> smallest level of significance at which zou can reject the null
+t is telling where we ended on xaxis of the distribution
+
+
+
+DoF = N - k 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
