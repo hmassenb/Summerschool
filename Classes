@@ -73,12 +73,63 @@ DoF = N - k
 
 
 02.08.2023
+If you have no clue:
+1) sign
+2) magnitude
+3) Significance
 
+Sometimes two variables singularly display no effect, but jointly they do
+All regressors apart from coas are not significant (at 5%), yet the F test is 
+significant. Normally we suspect multicollinearity, but can 
+also be heteroskedasticity, because that will invalidate the F test as well 
+as t tests. 
 
+Heteroskedasticity: about variance. distribution of variance -> 
+more consistent same distribution over x but not necessarily normal!!
+Var(epsilon|X) proportional to x_ji 
+standard formula of OLS would suffer by this -> not anymore efficient 
+in Gauss Markov terms not best anymore!!
+Summed: 
+1) loss of efficiency
+2) invalid standard error -> problematic for drawing inference
 
+Detect Heteroskedasticity with Goldfeld-Quandt test 
+split vertically data and look if RSS differs significantly between two sides,
+to see if dispersion is different between eg low and high variables
+If cone is open toward yaxis then flip RSS conversly to cone that is pointy at low x and opening toward larger x
+Drawback that only for vector it makes sense to split in subset, for matrix difficult 
 
+1 - type 2 error = power of test
+deleting middle part if split into 3 to increase power of test as bottom tertio and upper are the more extreme parts at
+least if it has cone form
+to gain power you can switch from two sided two one sided test
 
+Even under Heteroskedasticity OLS remains consistent
 
+RSS under normality will be chi squred distributed 
+
+var(beta hat) = sigma ^2(X'X)^-1
+not constant as sigma^2 not constant if heteroskedasticity 
+
+Heteroskedasticitz var: (X'X)^-1 var(epsiolon|X) X (X'X) ^-1
+computing this is and doing what discussed in class is what robust standard errors
+
+spericity = var(epsilon|X) = sigma^2*I^2_N
+Plug this into heterosk var and lift sigma in front then I can be built of X 
+and as a result the var(beta hat) is like in the homosk case
+
+Breuschan Pagan: 
+y usuallz subset of regressors
+epsilon hats still valid by OLS, se are flawed NOT epsilon
+
+LM test n*R^2 ~ chi squared_(dim alpha1) 
+
+White generalized Breuschan Pagan test by using higher order polynomials (squared and interactions) 
+that follows in principle the taylore series expansion
+- dummy var does not need to be squared as its already dummy!!!!
+- conversly, residuals should be squared 
+- vectors cannot be squared but the values of the vector can be
+- can be problematic if N low but k high and by WHite loosing more k 
 
 
 
