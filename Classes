@@ -132,6 +132,29 @@ that follows in principle the taylore series expansion
 - can be problematic if N low but k high and by WHite loosing more k 
 
 
+4/8. 
+Difference between OLS and MLE
+- MLE requires density function with joint distribution assumption
+
+MLE: 
+PROBABILITY =
+- Given parameters (theta) find probabilities of 1 
+- theta and y are vectors
+- integrating cdf gives pdf
+
+STATS = 
+Given data y find plausible theta
+-> flipped approach, we can use probability approach to determine stats problem
+
+
+Using joint distribution of y to determine 
+maximising log L 
+
+
+f(y; theta) = conceptually (theta, y) 
+on rhs no density term, as in statistic with actual data we do not have random data! 
+Random data in probability allows us to talk about distribution
+
 
 
 
