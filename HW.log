@@ -1,0 +1,1134 @@
+------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\Hannah\Documents\LSE 2023\Part I Dr Marcia S
+> chafgans\HW.log
+  log type:  text
+ opened on:   6 Aug 2023, 14:46:51
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. log using HW.log
+log file already open
+r(604);
+
+end of do-file
+
+r(604);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. gen kids = 0 
+
+. replace kids = 1 if children > 0 
+(3,229 real changes made)
+
+. 
+. des kids
+
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+------------------------------------------------------------------
+kids            float   %9.0g                 
+
+. tab kids 
+
+       kids |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      1,132       25.96       25.96
+          1 |      3,229       74.04      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. 
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. dis kids
+0
+
+. sum kids
+
+    Variable |        Obs        Mean    Std. dev.       Min      
+>   Max
+-------------+----------------------------------------------------
+> -----
+        kids |      4,361    .7404265    .4384509          0      
+>     1
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. dis kids
+0
+
+. sum kids
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        kids |      4,361    .7404265    .4384509          0          1
+
+. 
+end of do-file
+
+. sum kids, d
+
+                            kids
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               4,361
+25%            0              0       Sum of wgt.       4,361
+
+50%            1                      Mean           .7404265
+                        Largest       Std. dev.      .4384509
+75%            1              1
+90%            1              1       Variance       .1922392
+95%            1              1       Skewness      -1.096835
+99%            1              1       Kurtosis       2.203046
+
+. sum kids
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        kids |      4,361    .7404265    .4384509          0          1
+
+. tab kids
+
+       kids |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      1,132       25.96       25.96
+          1 |      3,229       74.04      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. di 3229 / 4361
+.74042651
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. des kids
+
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-----------------------------------------------------------------------
+kids            float   %9.0g                 
+
+. sum kids
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        kids |      4,361    .7404265    .4384509          0          1
+
+. 
+. tab kids
+
+       kids |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      1,132       25.96       25.96
+          1 |      3,229       74.04      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. di 3229 / 4361
+.74042651
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. des kids // 
+
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-----------------------------------------------------------------------
+kids            float   %9.0g                 
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. sum kids //
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        kids |      4,361    .7404265    .4384509          0          1
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. tab kids
+
+       kids |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      1,132       25.96       25.96
+          1 |      3,229       74.04      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. gen age2 = age^2
+
+. reg kids educ age age2 urban electric tv
+
+      Source |       SS           df       MS      Number of obs   =   
+>   4,358
+-------------+----------------------------------   F(6, 4351)      =   
+>  529.31
+       Model |  353.566318         6  58.9277197   Prob > F        =   
+>  0.0000
+    Residual |  484.394214     4,351  .111329399   R-squared       =   
+>  0.4219
+-------------+----------------------------------   Adj R-squared   =   
+>  0.4211
+       Total |  837.960532     4,357  .192325116   Root MSE        =   
+>  .33366
+
+-----------------------------------------------------------------------
+> -------
+        kids | Coefficient  Std. err.      t    P>|t|     [95% conf. in
+> terval]
+-------------+---------------------------------------------------------
+> -------
+        educ |  -.0032724   .0014731    -2.22   0.026    -.0061605   -.
+> 0003844
+         age |   .1498868   .0037933    39.51   0.000       .14245    .
+> 1573237
+        age2 |  -.0020657   .0000625   -33.08   0.000    -.0021881   -.
+> 0019432
+       urban |  -.0023418   .0107272    -0.22   0.827    -.0233726    .
+> 0186891
+    electric |  -.0254395   .0177725    -1.43   0.152    -.0602826    .
+> 0094037
+          tv |  -.0200979   .0210889    -0.95   0.341    -.0614429    .
+> 0212471
+       _cons |  -1.634372   .0552422   -29.59   0.000    -1.742675    -
+> 1.52607
+-----------------------------------------------------------------------
+> -------
+
+. ttest educ
+by() option required
+r(100);
+
+end of do-file
+
+r(100);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. reg kids educ age age2 urban electric tv
+
+      Source |       SS           df       MS      Number of obs   =     4,358
+-------------+----------------------------------   F(6, 4351)      =    529.31
+       Model |  353.566318         6  58.9277197   Prob > F        =    0.0000
+    Residual |  484.394214     4,351  .111329399   R-squared       =    0.4219
+-------------+----------------------------------   Adj R-squared   =    0.4211
+       Total |  837.960532     4,357  .192325116   Root MSE        =    .33366
+
+------------------------------------------------------------------------------
+        kids | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0032724   .0014731    -2.22   0.026    -.0061605   -.0003844
+         age |   .1498868   .0037933    39.51   0.000       .14245    .1573237
+        age2 |  -.0020657   .0000625   -33.08   0.000    -.0021881   -.0019432
+       urban |  -.0023418   .0107272    -0.22   0.827    -.0233726    .0186891
+    electric |  -.0254395   .0177725    -1.43   0.152    -.0602826    .0094037
+          tv |  -.0200979   .0210889    -0.95   0.341    -.0614429    .0212471
+       _cons |  -1.634372   .0552422   -29.59   0.000    -1.742675    -1.52607
+------------------------------------------------------------------------------
+
+. test educ
+
+ ( 1)  educ = 0
+
+       F(  1,  4351) =    4.93
+            Prob > F =    0.0264
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. ttest educ, by(kids)
+
+Two-sample t test with equal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |   1,132    7.152827     .094232    3.170454    6.967938    7.337716
+       1 |   3,229    5.401363    .0715092    4.063462    5.261155    5.541571
+---------+--------------------------------------------------------------------
+Combined |   4,361    5.855996     .059467    3.927075    5.739411    5.972582
+---------+--------------------------------------------------------------------
+    diff |            1.751464    .1330419                1.490634    2.012294
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  13.1648
+H0: diff = 0                                     Degrees of freedom =     4359
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 1.0000         Pr(|T| > |t|) = 0.0000          Pr(T > t) = 0.0000
+
+. 
+end of do-file
+
+. tab educ
+
+   years of |
+  education |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |        906       20.78       20.78
+          1 |         60        1.38       22.15
+          2 |        104        2.38       24.54
+          3 |        142        3.26       27.79
+          4 |        194        4.45       32.24
+          5 |        234        5.37       37.61
+          6 |        298        6.83       44.44
+          7 |      1,162       26.65       71.08
+          8 |        184        4.22       75.30
+          9 |        232        5.32       80.62
+         10 |        527       12.08       92.71
+         11 |         33        0.76       93.46
+         12 |        165        3.78       97.25
+         13 |         19        0.44       97.68
+         14 |         36        0.83       98.51
+         15 |         25        0.57       99.08
+         16 |         17        0.39       99.47
+         17 |         15        0.34       99.82
+         18 |          3        0.07       99.89
+         19 |          4        0.09       99.98
+         20 |          1        0.02      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. test educ
+
+ ( 1)  educ = 0
+
+       F(  1,  4351) =    4.93
+            Prob > F =    0.0264
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. eststo c: reg kids educ age age2 urban electric tv
+
+      Source |       SS           df       MS      Number of obs   =     4,358
+-------------+----------------------------------   F(6, 4351)      =    529.31
+       Model |  353.566318         6  58.9277197   Prob > F        =    0.0000
+    Residual |  484.394214     4,351  .111329399   R-squared       =    0.4219
+-------------+----------------------------------   Adj R-squared   =    0.4211
+       Total |  837.960532     4,357  .192325116   Root MSE        =    .33366
+
+------------------------------------------------------------------------------
+        kids | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0032724   .0014731    -2.22   0.026    -.0061605   -.0003844
+         age |   .1498868   .0037933    39.51   0.000       .14245    .1573237
+        age2 |  -.0020657   .0000625   -33.08   0.000    -.0021881   -.0019432
+       urban |  -.0023418   .0107272    -0.22   0.827    -.0233726    .0186891
+    electric |  -.0254395   .0177725    -1.43   0.152    -.0602826    .0094037
+          tv |  -.0200979   .0210889    -0.95   0.341    -.0614429    .0212471
+       _cons |  -1.634372   .0552422   -29.59   0.000    -1.742675    -1.52607
+------------------------------------------------------------------------------
+
+. esttab educ
+estimation result educ not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. tab _b(educ)
+factor-variable and time-series operators not allowed
+r(101);
+
+end of do-file
+
+r(101);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. gen beduc = _b[educ]
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. tab beduc
+
+      beduc |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  -.0032724 |      4,361      100.00      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. ***********************
+. * Homework LSE 
+. ***********************
+. * a)
+. clear all
+
+. cd "C:\Users\Hannah\Documents\LSE 2023\Part I Dr Marcia Schafgans"
+C:\Users\Hannah\Documents\LSE 2023\Part I Dr Marcia Schafgans
+
+. use "FERTIL2.dta"
+
+. log using HW.log, replace 
+log file already open
+r(604);
+
+end of do-file
+
+r(604);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. 
+. * b)
+. gen kids = 0 
+
+. replace kids = 1 if children > 0 
+(3,229 real changes made)
+
+. 
+. des kids // for storage type and display format
+
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+kids            float   %9.0g                 
+
+. sum kids // N, mean, std, min, max, optionally adding ,d for an even more detailed summary 
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        kids |      4,361    .7404265    .4384509          0          1
+
+. tab kids // Frequency, Percentage and Cumulative distribution of people with kids and without
+
+       kids |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      1,132       25.96       25.96
+          1 |      3,229       74.04      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. 
+. /* mean of kids by sum is equal to percent of persons with kids in percentage by tab */
+. 
+. 
+. ***************************
+. *c) 
+. gen age2 = age^2
+
+. reg kids educ age age2 urban electric tv
+
+      Source |       SS           df       MS      Number of obs   =     4,358
+-------------+----------------------------------   F(6, 4351)      =    529.31
+       Model |  353.566318         6  58.9277197   Prob > F        =    0.0000
+    Residual |  484.394214     4,351  .111329399   R-squared       =    0.4219
+-------------+----------------------------------   Adj R-squared   =    0.4211
+       Total |  837.960532     4,357  .192325116   Root MSE        =    .33366
+
+------------------------------------------------------------------------------
+        kids | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0032724   .0014731    -2.22   0.026    -.0061605   -.0003844
+         age |   .1498868   .0037933    39.51   0.000       .14245    .1573237
+        age2 |  -.0020657   .0000625   -33.08   0.000    -.0021881   -.0019432
+       urban |  -.0023418   .0107272    -0.22   0.827    -.0233726    .0186891
+    electric |  -.0254395   .0177725    -1.43   0.152    -.0602826    .0094037
+          tv |  -.0200979   .0210889    -0.95   0.341    -.0614429    .0212471
+       _cons |  -1.634372   .0552422   -29.59   0.000    -1.742675    -1.52607
+------------------------------------------------------------------------------
+
+. gen beduc = _b[educ]
+
+. tab beduc
+
+      beduc |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  -.0032724 |      4,361      100.00      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. ttest educ, by(kids) // people with kids have on avg less years of educ
+
+Two-sample t test with equal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |   1,132    7.152827     .094232    3.170454    6.967938    7.337716
+       1 |   3,229    5.401363    .0715092    4.063462    5.261155    5.541571
+---------+--------------------------------------------------------------------
+Combined |   4,361    5.855996     .059467    3.927075    5.739411    5.972582
+---------+--------------------------------------------------------------------
+    diff |            1.751464    .1330419                1.490634    2.012294
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  13.1648
+H0: diff = 0                                     Degrees of freedom =     4359
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 1.0000         Pr(|T| > |t|) = 0.0000          Pr(T > t) = 0.0000
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. test educ // F-test: var is significant different from 0 
+
+ ( 1)  educ = 0
+
+       F(  1,  4351) =    4.93
+            Prob > F =    0.0264
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. *d)
+. probit kids educ age age2 urban electric tv
+
+Iteration 0:   log likelihood = -2496.2517  
+Iteration 1:   log likelihood = -1536.5772  
+Iteration 2:   log likelihood = -1521.9327  
+Iteration 3:   log likelihood = -1521.9128  
+Iteration 4:   log likelihood = -1521.9128  
+
+Probit regression                                      Number of obs =   4,358
+                                                       LR chi2(6)    = 1948.68
+                                                       Prob > chi2   =  0.0000
+Log likelihood = -1521.9128                            Pseudo R2     =  0.3903
+
+------------------------------------------------------------------------------
+        kids | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0200778   .0075946    -2.64   0.008     -.034963   -.0051927
+         age |   .5300409   .0206465    25.67   0.000     .4895745    .5705072
+        age2 |   -.007196   .0003426   -21.01   0.000    -.0078674   -.0065246
+       urban |  -.0272173   .0536354    -0.51   0.612    -.1323407    .0779061
+    electric |  -.1231285   .0864437    -1.42   0.154    -.2925551    .0462981
+          tv |   -.072252   .1030424    -0.70   0.483    -.2742115    .1297075
+       _cons |  -7.498345   .2901585   -25.84   0.000    -8.067046   -6.929645
+------------------------------------------------------------------------------
+
+. margins educ, dydx(*)
+factor educ not found in list of covariates
+r(322);
+
+end of do-file
+
+r(322);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. probit kids educ age age2 urban electric tv
+
+Iteration 0:   log likelihood = -2496.2517  
+Iteration 1:   log likelihood = -1536.5772  
+Iteration 2:   log likelihood = -1521.9327  
+Iteration 3:   log likelihood = -1521.9128  
+Iteration 4:   log likelihood = -1521.9128  
+
+Probit regression                                      Number of obs =   4,358
+                                                       LR chi2(6)    = 1948.68
+                                                       Prob > chi2   =  0.0000
+Log likelihood = -1521.9128                            Pseudo R2     =  0.3903
+
+------------------------------------------------------------------------------
+        kids | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0200778   .0075946    -2.64   0.008     -.034963   -.0051927
+         age |   .5300409   .0206465    25.67   0.000     .4895745    .5705072
+        age2 |   -.007196   .0003426   -21.01   0.000    -.0078674   -.0065246
+       urban |  -.0272173   .0536354    -0.51   0.612    -.1323407    .0779061
+    electric |  -.1231285   .0864437    -1.42   0.154    -.2925551    .0462981
+          tv |   -.072252   .1030424    -0.70   0.483    -.2742115    .1297075
+       _cons |  -7.498345   .2901585   -25.84   0.000    -8.067046   -6.929645
+------------------------------------------------------------------------------
+
+. margins, dydx(educ)
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0039367   .0014897    -2.64   0.008    -.0068565    -.001017
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) atmeans
+
+Conditional marginal effects                             Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+At: educ     = 5.856127 (mean)
+    age      = 27.40431 (mean)
+    age2     = 826.4236 (mean)
+    urban    = .5165213 (mean)
+    electric = .1402019 (mean)
+    tv       = .0929325 (mean)
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0052243   .0019702    -2.65   0.008    -.0090858   -.0013628
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) atmeans at(kids==(0(1)11)) 
+variable kids not found in list of covariates
+r(322);
+
+end of do-file
+
+r(322);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) asbalanced
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0039367   .0014897    -2.64   0.008    -.0068565    -.001017
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. tab educ
+
+   years of |
+  education |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |        906       20.78       20.78
+          1 |         60        1.38       22.15
+          2 |        104        2.38       24.54
+          3 |        142        3.26       27.79
+          4 |        194        4.45       32.24
+          5 |        234        5.37       37.61
+          6 |        298        6.83       44.44
+          7 |      1,162       26.65       71.08
+          8 |        184        4.22       75.30
+          9 |        232        5.32       80.62
+         10 |        527       12.08       92.71
+         11 |         33        0.76       93.46
+         12 |        165        3.78       97.25
+         13 |         19        0.44       97.68
+         14 |         36        0.83       98.51
+         15 |         25        0.57       99.08
+         16 |         17        0.39       99.47
+         17 |         15        0.34       99.82
+         18 |          3        0.07       99.89
+         19 |          4        0.09       99.98
+         20 |          1        0.02      100.00
+------------+-----------------------------------
+      Total |      4,361      100.00
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) educ=0
+option educ not allowed
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) x=0
+option x not allowed
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) at(educ=0)
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+At: educ = 0
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0037686   .0013592    -2.77   0.006    -.0064326   -.0011046
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) at(educ=20)
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+At: educ = 20
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0044314   .0018657    -2.38   0.018    -.0080881   -.0007746
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) at(educ=20) //
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+At: educ = 20
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0044314   .0018657    -2.38   0.018    -.0080881   -.0007746
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) atmeansn //
+option atmeansn not allowed
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) atmeans //
+
+Conditional marginal effects                             Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+At: educ     = 5.856127 (mean)
+    age      = 27.40431 (mean)
+    age2     = 826.4236 (mean)
+    urban    = .5165213 (mean)
+    electric = .1402019 (mean)
+    tv       = .0929325 (mean)
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0052243   .0019702    -2.65   0.008    -.0090858   -.0013628
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) at(educ=10)
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+At: educ = 10
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0041031   .0016168    -2.54   0.011    -.0072719   -.0009342
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) at(educ=(0(2)20))
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+1._at:  educ =  0
+2._at:  educ =  2
+3._at:  educ =  4
+4._at:  educ =  6
+5._at:  educ =  8
+6._at:  educ = 10
+7._at:  educ = 12
+8._at:  educ = 14
+9._at:  educ = 16
+10._at: educ = 18
+11._at: educ = 20
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+educ         |
+         _at |
+          1  |  -.0037686   .0013592    -2.77   0.006    -.0064326   -.0011046
+          2  |  -.0038357    .001411    -2.72   0.007    -.0066012   -.0010703
+          3  |  -.0039028   .0014627    -2.67   0.008    -.0067695    -.001036
+          4  |  -.0039697   .0015142    -2.62   0.009    -.0069375   -.0010019
+          5  |  -.0040365   .0015656    -2.58   0.010    -.0071051   -.0009679
+          6  |  -.0041031   .0016168    -2.54   0.011    -.0072719   -.0009342
+          7  |  -.0041694   .0016676    -2.50   0.012     -.007438   -.0009009
+          8  |  -.0042355   .0017181    -2.47   0.014    -.0076029   -.0008682
+          9  |  -.0043013    .001768    -2.43   0.015    -.0077664   -.0008361
+         10  |  -.0043666   .0018172    -2.40   0.016    -.0079283   -.0008048
+         11  |  -.0044314   .0018657    -2.38   0.018    -.0080881   -.0007746
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) at(educ=(0,20))
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+1._at: educ =  0
+2._at: educ = 20
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+educ         |
+         _at |
+          1  |  -.0037686   .0013592    -2.77   0.006    -.0064326   -.0011046
+          2  |  -.0044314   .0018657    -2.38   0.018    -.0080881   -.0007746
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ)
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0039367   .0014897    -2.64   0.008    -.0068565    -.001017
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) at(educ=(0(1)20))
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+1._at:  educ =  0
+2._at:  educ =  1
+3._at:  educ =  2
+4._at:  educ =  3
+5._at:  educ =  4
+6._at:  educ =  5
+7._at:  educ =  6
+8._at:  educ =  7
+9._at:  educ =  8
+10._at: educ =  9
+11._at: educ = 10
+12._at: educ = 11
+13._at: educ = 12
+14._at: educ = 13
+15._at: educ = 14
+16._at: educ = 15
+17._at: educ = 16
+18._at: educ = 17
+19._at: educ = 18
+20._at: educ = 19
+21._at: educ = 20
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+educ         |
+         _at |
+          1  |  -.0037686   .0013592    -2.77   0.006    -.0064326   -.0011046
+          2  |  -.0038022   .0013851    -2.75   0.006    -.0065169   -.0010874
+          3  |  -.0038357    .001411    -2.72   0.007    -.0066012   -.0010703
+          4  |  -.0038693   .0014368    -2.69   0.007    -.0066854   -.0010531
+          5  |  -.0039028   .0014627    -2.67   0.008    -.0067695    -.001036
+          6  |  -.0039362   .0014885    -2.64   0.008    -.0068536   -.0010189
+          7  |  -.0039697   .0015142    -2.62   0.009    -.0069375   -.0010019
+          8  |  -.0040031     .00154    -2.60   0.009    -.0070214   -.0009848
+          9  |  -.0040365   .0015656    -2.58   0.010    -.0071051   -.0009679
+         10  |  -.0040698   .0015912    -2.56   0.011    -.0071886    -.000951
+         11  |  -.0041031   .0016168    -2.54   0.011    -.0072719   -.0009342
+         12  |  -.0041363   .0016423    -2.52   0.012    -.0073551   -.0009175
+         13  |  -.0041694   .0016676    -2.50   0.012     -.007438   -.0009009
+         14  |  -.0042025   .0016929    -2.48   0.013    -.0075206   -.0008845
+         15  |  -.0042355   .0017181    -2.47   0.014    -.0076029   -.0008682
+         16  |  -.0042684   .0017431    -2.45   0.014    -.0076848    -.000852
+         17  |  -.0043013    .001768    -2.43   0.015    -.0077664   -.0008361
+         18  |   -.004334   .0017927    -2.42   0.016    -.0078476   -.0008203
+         19  |  -.0043666   .0018172    -2.40   0.016    -.0079283   -.0008048
+         20  |   -.004399   .0018416    -2.39   0.017    -.0080085   -.0007896
+         21  |  -.0044314   .0018657    -2.38   0.018    -.0080881   -.0007746
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ) atmeans // -.0052243  
+
+Conditional marginal effects                             Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+At: educ     = 5.856127 (mean)
+    age      = 27.40431 (mean)
+    age2     = 826.4236 (mean)
+    urban    = .5165213 (mean)
+    electric = .1402019 (mean)
+    tv       = .0929325 (mean)
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0052243   .0019702    -2.65   0.008    -.0090858   -.0013628
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. margins, dydx(educ)
+
+Average marginal effects                                 Number of obs = 4,358
+Model VCE: OIM
+
+Expression: Pr(kids), predict()
+dy/dx wrt:  educ
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0039367   .0014897    -2.64   0.008    -.0068565    -.001017
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. test educ
+
+ ( 1)  [kids]educ = 0
+
+           chi2(  1) =    6.99
+         Prob > chi2 =    0.0082
+
+. ttest kids, by(educ)
+more than 2 groups found, only 2 allowed
+r(420);
+
+end of do-file
+
+r(420);
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. test educ
+
+ ( 1)  [kids]educ = 0
+
+           chi2(  1) =    6.99
+         Prob > chi2 =    0.0082
+
+. ttest educ, by(kids)
+
+Two-sample t test with equal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |   1,132    7.152827     .094232    3.170454    6.967938    7.337716
+       1 |   3,229    5.401363    .0715092    4.063462    5.261155    5.541571
+---------+--------------------------------------------------------------------
+Combined |   4,361    5.855996     .059467    3.927075    5.739411    5.972582
+---------+--------------------------------------------------------------------
+    diff |            1.751464    .1330419                1.490634    2.012294
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  13.1648
+H0: diff = 0                                     Degrees of freedom =     4359
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 1.0000         Pr(|T| > |t|) = 0.0000          Pr(T > t) = 0.0000
+
+. 
+end of do-file
+
+. do "C:\Users\Hannah\AppData\Local\Temp\STD6e4_000000.tmp"
+
+. probit kids educ age age2 urban electric tv
+
+Iteration 0:   log likelihood = -2496.2517  
+Iteration 1:   log likelihood = -1536.5772  
+Iteration 2:   log likelihood = -1521.9327  
+Iteration 3:   log likelihood = -1521.9128  
+Iteration 4:   log likelihood = -1521.9128  
+
+Probit regression                                      Number of obs =   4,358
+                                                       LR chi2(6)    = 1948.68
+                                                       Prob > chi2   =  0.0000
+Log likelihood = -1521.9128                            Pseudo R2     =  0.3903
+
+------------------------------------------------------------------------------
+        kids | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        educ |  -.0200778   .0075946    -2.64   0.008     -.034963   -.0051927
+         age |   .5300409   .0206465    25.67   0.000     .4895745    .5705072
+        age2 |   -.007196   .0003426   -21.01   0.000    -.0078674   -.0065246
+       urban |  -.0272173   .0536354    -0.51   0.612    -.1323407    .0779061
+    electric |  -.1231285   .0864437    -1.42   0.154    -.2925551    .0462981
+          tv |   -.072252   .1030424    -0.70   0.483    -.2742115    .1297075
+       _cons |  -7.498345   .2901585   -25.84   0.000    -8.067046   -6.929645
+------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. dof
+command dof is unrecognized
+r(199);
+
+. do "C:\Users\Hannah\Downloads\ec312_problem set 3.do"
+
+. /*     EC312: Advanced Econometrics         */
+. /*      Solutions to Computer Exercises     */
+. /*            Problem Set 3 Question 1      */    
+. 
+. 
+. 
+. /* Description: This do-file produces stata output for the solutions of computer 
+> exercises in Problem Set 3 of EC312. Outputs are also saved in a separate log file
+> with the same name as this do-file. Please make sure you change the current directory
+> appropriately by placing the path of your working directory after "cd" in the preamble below.
+> Also make sure the datasets used in the exercises are saved in your working directory
+> with the same names they appear on Moodle or change the names after the "use" commands 
+> accordingly.
+> 
+> eststo:    You may need to install st0085_2   Making regression tables simplified  */
+. 
+. 
+. 
+. // Preamble:
+. 
+. clear
+
+. set more off
+
+. capture log close
