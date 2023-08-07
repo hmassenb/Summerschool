@@ -34,20 +34,20 @@ ttest educ, by(kids) // t-test = 13,16
 ***************************
 *d)
 probit kids educ age age2 urban electric tv
-gen pr_bedc = _b[educ]
-tab pr_bedc //  -.0200778
-test educ //  chi2(1) = 6.99, Prob > chi2 = 0.0082 => signi 
+gen pr_beduc = _b[educ]
+tab pr_beduc //  -.0200778
+test educ //  chi^2_(1) = 6.99, Prob > chi2 = 0.0082 => signi 
 
 
 ***************************
 *e)
-probit kids age
+probit kids educ age age2 urban electric tv
 estimates store unrestricted
-
-constr define 1 age=0
-probit kids, constraint(1)
+gen ages = age + age2
+constr define 1 ages=0
+probit kids educ urban electric tv, constraint(1)
 estimates store restricted
-lrtest unrestricted restricted // LR = 1568.80
+lrtest unrestricted restricted // LR = 1753.76
 
 ***************************
 *f)
@@ -58,11 +58,11 @@ margins, dydx(educ) // dy/dx = -.0039367, z=-2.64, P>|z|=0.008
 
 ***************************
 *f) 2
-poisson kids educ age age2 urban electric tv
-margins , dydx(educ) // -.0015218 
-margins , dydx(educ) atmeans // -.0013838 
-margins , dydx(educ) at(educ=0) // -.0015388 
-margins , dydx(educ) at(educ=20) //-.0014768 
+ poisson children educ age age2 urban electric tv
+margins , dydx(educ) // -.0552558  
+margins , dydx(educ) atmeans // -.0373835 
+margins , dydx(educ) at(educ=0) // -.061865 
+margins , dydx(educ) at(educ=20) //  -.0380003  
 margins , dydx(educ) at(educ=(0(1)20)) // observing that impact of additional year is decreasing the more education someone has
 
 
